@@ -84,18 +84,20 @@ export default function Home() {
               <i className="fa-solid fa-users mr-4 w-4"></i>
               Data Warga
             </button>
-            <button
-              className={`text-start py-2 hover:text-black hover:font-bold ${
-                selected === 6 ? "text-black font-bold" : "text-white"
-              }`}
-              onClick={() => {
-                setSelected(6);
-                setTitle("Status Pengajuan");
-              }}
-            >
-              <i className="fa-solid fa-user mr-4 w-4"></i>
-              Status Pengajuan
-            </button>
+            {currUser?.type === "user" && (
+              <button
+                className={`text-start py-2 hover:text-black hover:font-bold ${
+                  selected === 6 ? "text-black font-bold" : "text-white"
+                }`}
+                onClick={() => {
+                  setSelected(6);
+                  setTitle("Status Pengajuan");
+                }}
+              >
+                <i className="fa-solid fa-user mr-4 w-4"></i>
+                Status Pengajuan
+              </button>
+            )}
             {currUser?.type === "admin" && (
               <>
                 <button
