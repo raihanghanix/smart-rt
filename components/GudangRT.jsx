@@ -9,15 +9,15 @@ const GudangRT = ({ data }) => {
   const [keterangan, setKeterangan] = useState("");
   const [obj, setObj] = useState([
     {
-      nama,
-      status,
-      jumlah,
-      keterangan,
+      nama: "Kursi Plastik",
+      status: "Bagus",
+      jumlah: 20,
+      keterangan: "Dipinjam oleh pak udin",
     },
   ]);
 
   function handleClick() {
-    console.log(obj);
+    setObj((s) => [...s, { nama, status, jumlah, keterangan }]);
   }
 
   return (
@@ -74,12 +74,14 @@ const GudangRT = ({ data }) => {
           </tr>
         </thead>
         <tbody className="">
-          <tr>
-            <td className="">Kursi Plastik</td>
-            <td>Bagus</td>
-            <td>20</td>
-            <td>Dipinjam oleh pak udin</td>
-          </tr>
+          {obj.map((i, index) => (
+            <tr key={index}>
+              <td className="">{i.nama}</td>
+              <td>{i.status}</td>
+              <td>{i.jumlah}</td>
+              <td>{i.keterangan}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
