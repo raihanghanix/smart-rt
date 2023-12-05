@@ -55,7 +55,7 @@ const Pengajuan = ({ data }) => {
     const resData = await res.json();
     if (res.status !== 200) return alert(resData.message);
     console.log(resData.pengajuan);
-    setPengajuan(resData.pengajuan);
+    return setPengajuan(resData.pengajuan);
   }
 
   useEffect(() => {
@@ -78,6 +78,8 @@ const Pengajuan = ({ data }) => {
           <div className="flex-1 flex justify-center items-center flex-col gap-4">
             <select name="surat" className="font-bold">
               <option value="spd">Surat Pengantar Domisili</option>
+              <option value="spd">Surat Pengantar Penelitian</option>
+              <option value="spd">Surat Pengantar Kematian</option>
             </select>
             <input
               type="text"
